@@ -1,0 +1,71 @@
+<!-- 
+Invia delle date e delle ore al dispositivo in modo che possa
+reagire di conseguenza.
+PER LO SMARTBULB:
+Simula risposte al sensore luce: si presuppone che la luce abbia un 
+sensore di luminosità, quindi quando avverte che la luce sta diminuendo, 
+accende la luce. La luce si presuppone che diminuisca verso un certo orario
+del giorno, quindi il sender invia un ora in cui la luce si sta abbassando.
+
+La soluzione corretta sarebbe associare un valore numerico al sensore
+di luce, e se (ad esempio, non avendo conoscenza dei sensori) il valore è 
+al di sotto dello 0, allora va accesa la luce, in caso contrario può
+rimanere spenta, tenendo conto comunque dell'orario.
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Date Sender</title>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.2/mqttws31.min.js"
+	type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+<body>
+Date sender:<br>
+ 			 <form id="cmdform" action="#">
+ 			 <input type="datetime-local" name="dateAndTime">
+			<br><br><input type="button" onClick="sendMessage()" value="Vai">
+			</form>
+
+<script>
+startConnect();
+function startConnect() {
+    // hostname/IP address and port number 
+    host = "localhost";
+	port = "9001";
+
+    // Print output for the user on console
+   	console.log( 'connecting to: ' + host + ' on port: ' + port);
+
+    // Initialize new Paho client connection
+    client = new Paho.MQTT.Client(host, Number(port), "DATEID1");
+
+    // Connect the client, if successful, call onConnect function
+    client.connect({ 
+        onSuccess: onConnect,
+    });
+}
+
+// Called when the client connects
+function onConnect() {
+    console.log("connected");
+	// flag to check connection
+
+}
+
+function sendMessage(){
+	var generated_date = new Date($('input[name="dateAndTime"]').val());
+	
+	console.log("Sending date "+generated_date+" on topic: ROOM/SMARTBULB/CMD");
+	message = new Paho.MQTT.Message(JSON.stringify({
+		"date": generated_date
+	}));
+	message.destinationName = "ROOM/SMARTBULB/CMD";
+	client.send(message);
+}
+
+</script>
+</body>
+</html>

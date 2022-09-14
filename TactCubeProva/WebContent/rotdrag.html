@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+</head>
+
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+  }
+ 
+/*sun*/
+
+  
+
+:root {
+    --delay: 0;
+}
+
+#parentCircle {
+    position: absolute;
+    top:30px; 
+	right:10px;
+    width: 520px;
+    height: 540px;
+    border: 1px solid gray;
+    border-radius: 50%;
+       animation: rotate 1s;
+     animation-play-state: paused;
+  animation-delay: var(--delay);
+z-index:30;  
+}
+
+ .circle {
+      position: absolute;
+      width: 60px;
+      height: 60px;      
+      border-radius: 50%;
+      top: 45%; 
+}
+
+.sun {
+ background: rgb(255,250,210);
+background: radial-gradient(circle, rgba(255,250,210,1) 10%, rgba(255,241,76,1) 95%);        
+    box-shadow: 0 0 20px yellow; 
+          right: 0;
+     }
+
+.moon {
+   background-color: white;
+	opacity: 0.7;
+	background-size: auto;
+	left:0;
+	 }
+.sky {
+	position:absolute;
+	width: 540px;
+	height: 100%;
+	bottom:0;
+	 animation: skyChanging 1s;
+	   animation-play-state: paused;
+  animation-delay: var(--delay);
+
+}
+
+@keyframes rotate {
+  0% {
+   transform: rotate(0deg);
+    
+  }
+  100% {
+   transform: rotate(359deg);
+  }
+}
+
+
+@keyframes skyChanging {
+  0% {background-color: #D2691E;} /* arancio scuro */
+  
+  10% {background-color: #191970;} /*notte*/
+  45% {background-color: #191970;} /*notte*/
+  
+  50% {background-color: #4682B4;} /*celeste alba*/
+  55% {background-color: #DB7093;} /*fucsia*/
+  58% {background-color: #DAA520;} /*oro*/ 
+  63% {background-color: #F0FFFF;} /*bianco*/
+  
+  70% {background-color: #87CEFA;} /*cielo giorno */
+  88% {background-color: #00BFFF;} /*cielo pome */
+  
+  93% {background-color: #DB7093;} /*fucsia*/
+  97% {background-color: #DAA520;} /*oro*/
+  
+  100% {background-color: #D2691E;} /* arancio scuro */
+}
+
+@keyframes move {
+   0% {background-color: #D2691E; transform: rotate(0deg);} /* arancio scuro */
+  
+  10% {background-color: #191970;} /*notte*/
+  27% {background-color: #191970;} /*notte*/
+
+  30% {background-color: #4682B4;} /*celeste alba*/
+  33% {background-color: #DB7093;} /*fucsia*/
+  35% {background-color: #DAA520;} /*oro*/ 
+  37% {background-color: #F0FFFF;} /*bianco*/
+  
+  40% {background-color: #87CEFA;} /*cielo giorno */
+  75% {background-color: #00BFFF;} /*cielo pome */
+  
+  93% {background-color: #DB7093;} /*fucsia*/
+  97% {background-color: #DAA520;} /*oro*/
+  
+  100% {background-color: #D2691E;   transform: rotate(359deg);} /* arancio scuro */
+}
+</style>
+<body>
+<div class="sky"></div>
+ <div id="parentCircle">
+  <div class="circle sun"></div>
+  <div class="circle moon"></div>
+  </div>
+  
+  
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script>
+  $(function () {
+
+		$(window).mousemove(function (e) {
+	  	var t =  (-1/$(window).width()*e.pageX);
+	  	console.log("w:"+$(window).width()+"x:"+e.pageX);
+document.documentElement.style.setProperty('--delay', t+'s');
+	  });
+	});
+  
+ </script>
+ 
+ 
+ <script> (function() {
+    var R2D, active, angle, center, init, rotate, rotation, start, startAngle, stop;
+
+    active = false;
+
+    angle = 0;
+
+    rotation = 0;
+
+    startAngle = 0;
+
+    center = {
+      x: 0,
+      y: 0
+    };
+
+    document.ontouchmove = function(e) {
+      return e.preventDefault();
+    };
+
+    init = function() {
+    	parentCircle.addEventListener("mousedown", start, false);
+    	parentCircle.addEventListener("mousedown", rotate, false);
+      return parentCircle.addEventListener("mouseup", stop, false);
+    };
+
+    R2D = 180 / Math.PI;
+
+    start = function(e) {
+      var height, left, top, width, x, y, _ref;
+      e.preventDefault();
+      _ref = this.getBoundingClientRect(), top = _ref.top, left = _ref.left, height = _ref.height, width = _ref.width;
+      center = {
+        x: left + (width / 2),
+        y: top + (height / 2)
+      };
+      x = e.clientX - center.x;
+      y = e.clientY - center.y;
+      startAngle = R2D * Math.atan2(y, x);
+      return active = true;
+    };
+
+    rotate = function(e) {
+      var d, x, y;
+      e.preventDefault();
+      x = e.clientX - center.x;
+      y = e.clientY - center.y;
+      d = R2D * Math.atan2(y, x);
+      rotation = d - startAngle;
+      if (active) {
+        return this.style.webkitTransform = "rotate(" + (angle + rotation) + "deg)";
+      }
+    };
+
+    stop = function() {
+      angle += rotation;
+      return active = false;
+    };
+
+    init();
+
+  }).call(this);</script>
+</body>
+</html>

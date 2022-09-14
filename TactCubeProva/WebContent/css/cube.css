@@ -1,0 +1,150 @@
+
+.scene {
+	width: 200px;
+	height: 200px;
+	margin: 20px;
+	perspective: 400px;
+	transition: all 0.1s;
+}
+
+.cube {
+	width: 200px;
+	height: 200px;
+	position: relative;
+	transform-style: preserve-3d;
+	transform: translateZ(-100px);
+	transition: transform 1s;
+}
+
+
+.cube_shake_short {
+  animation: shake .9s;
+
+}
+.cube_shake_long {
+  animation: shake .9s;
+  animation-iteration-count:2;
+}
+@keyframes shake {
+  10%, 90% {
+    transform: translateZ(-100px) translateX(-1px) translateY(1px);
+  }
+  20%, 80% {
+    transform: translateZ(-100px) translateX(1px) translateY(-1px);
+  }
+  30%, 50%, 70% {
+    transform: translateZ(-100px) translateX(-1px) translateY(-1px);
+  }
+  40%, 60% {
+    transform: translateZ(-100px) translateX(1px) translateY(1px);
+  }
+}
+
+
+
+.cube__face {
+	position: absolute;
+	width: 200px;
+	height: 200px;
+	border: 2px solid black;
+	border-radius: 2px;
+	line-height: 200px;
+	font-size: 40px;
+	font-weight: bold;
+	color: white;
+	text-align: center;
+	background: rgba(0, 0, 0, 0.7);
+	transition: all 0.3s;
+}
+
+.cube__face--front {
+	transform: rotateY(0deg) translateZ(100px);
+}
+
+.cube__face--right {
+	transform: rotateY(90deg) translateZ(100px);
+}
+
+.cube__face--back {
+	transform: rotateY(180deg) translateZ(100px);
+}
+
+.cube__face--left {
+	transform: rotateY(-90deg) translateZ(100px);
+}
+
+.cube__face--top {
+	transform: rotateX(90deg) translateZ(100px);
+}
+
+.cube__face--bottom {
+	transform: rotateX(-90deg) translateZ(100px);
+}
+
+
+.warmup {
+	animation: warm 1.5s 2;
+  animation-direction: alternate;
+  animation-delay: 1s;
+}
+
+.cooldown {
+	animation: cool 1.5s 2;
+  animation-direction: alternate;
+  animation-delay: 1s;
+}
+
+@keyframes warm {
+  
+
+  from {
+    color: white;
+	background: rgba(0, 0, 0, 0.7);
+	}
+	 to{
+    color: rgba(100, 0, 0, 0.9);
+	background-color: rgba(200, 0, 0, 0.7);
+  }
+}
+
+@keyframes cool {
+  
+
+  from {
+    color: white;
+	background: rgba(0, 0, 0, 0.7);
+	}
+	 to{
+    color: rgba(100, 0, 0, 0.9);
+	background-color: rgba(0,200,200, 0.7);
+  }
+}
+
+.arrowButton, .tapButton {
+	background: transparent;
+	border: none;
+}
+
+.tapButton {
+	transform-style: preserve-3d;
+}
+
+.tapButton:active .cube__face {
+	color: rgba(100, 0, 0, 0.9);
+	background-color: rgba(200, 200, 200, 0.7);
+}
+
+i:hover {
+	color: #eee;
+}
+
+i {
+	font-size: 36px;
+	text-shadow: 1px 2px 2px #555;
+	transition: all 0.4s;
+}
+
+
+
+
+
