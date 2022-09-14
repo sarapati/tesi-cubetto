@@ -1,0 +1,203 @@
+html {
+	height: 100%;
+}
+
+.container {
+	height: 100%;
+	margin: 0;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background: rgb(255, 255, 255);
+}
+
+.bas-container {
+	position: relative;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	filter: drop-shadow(2px 2px 2px #aaa);
+	top: 6px;
+	z-index: 3;
+}
+
+.bastone {
+	position: relative;
+	width: 100%;
+	height: 16px;
+	background: rgb(234, 235, 239);
+	background: linear-gradient(180deg, rgba(234, 235, 239, 1) 0%,
+		rgba(237, 238, 242, 1) 12%, rgba(230, 231, 235, 1) 60%,
+		rgba(238, 239, 243, 1) 82%, rgba(208, 209, 214, 1) 100%);
+}
+
+.bastone::after, .bastone::before {
+	content: "";
+	display: flex;
+	/* size */
+	width: 152px;
+	height: 27px;
+	/* position */
+	position: absolute;
+	top: -2px;
+}
+
+.bastone::after {
+	right: 0;
+	background: rgb(190, 190, 190);
+	background: linear-gradient(90deg, rgba(190, 190, 190, 1) 0%,
+		rgba(250, 250, 250, 1) 5%, rgba(250, 250, 250, 1) 95%,
+		rgba(190, 190, 190, 1) 100%);
+	/* shape */
+	clip-path: polygon(0% 0%, 0 70%, 100% 70%, 100% 0);
+}
+
+.bastone::before {
+	background: rgb(190, 190, 190);
+	background: linear-gradient(90deg, rgba(190, 190, 190, 1) 0%,
+		rgba(246, 246, 246, 1) 16%, rgba(250, 250, 250, 1) 17%,
+		rgba(250, 250, 250, 1) 95%, rgba(190, 190, 190, 1) 100%);
+	clip-path: polygon(0% 0%, 0 70%, 100% 70%, 100% 0);
+}
+
+.attacco-batteria {
+	background: rgb(190, 190, 190);
+	background: linear-gradient(90deg, rgba(190, 190, 190, 1) 0%,
+		rgba(246, 246, 246, 1) 58%, rgba(250, 250, 250, 1) 61%,
+		rgba(250, 250, 250, 1) 92%, rgba(190, 190, 190, 1) 100%);
+	height: 10px;
+	width: 40px;
+	position: relative;
+	top: 7px;
+	z-index: 4;
+}
+
+.batteria::before, .batteria::after {
+	content: "";
+	background: rgb(190, 190, 190);
+	background: linear-gradient(90deg, rgba(190, 190, 190, 1) 0%,
+		rgba(246, 246, 246, 1) 60%, rgba(253, 253, 253, 1) 63%,
+		rgba(255, 255, 255, 1) 93%, rgba(190, 190, 190, 1) 100%);
+	height: 10px;
+	width: 40px;
+	/* position */
+	position: absolute;
+	left: 0;
+}
+
+.batteria::before {
+	top: 0px;
+}
+
+.batteria::after {
+	bottom: -9px;
+	box-shadow: 0 1px 3px #ccc;
+}
+
+.batteria {
+	/* position */
+	position: relative;
+	height: 200px;
+	width: 40px;
+	background: rgb(158, 159, 164);
+	background: linear-gradient(90deg, rgba(158, 159, 164, 1) 0%,
+		rgba(208, 209, 214, 1) 58%, rgba(233, 234, 239, 1) 61%,
+		rgba(231, 232, 237, 1) 92%, rgba(215, 217, 219, 1) 94%,
+		rgba(208, 209, 214, 1) 100%);
+	z-index: 5;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	
+}
+
+li {
+	float: right;
+}
+
+li ul li {
+	float: none;
+}
+
+.tenda {
+	position: absolute;
+	top: 12px;
+	right: 5px;
+	width: 100%;
+	height: 120%;
+	padding-right: 125px;
+	transition: all 2s;
+}
+
+.aggancio {
+	position: relative;
+	width: 70px;
+	height: 55px;
+	transform-style: preserve-3d;
+	transform: rotateY(0deg);
+	z-index: 1;
+	transition: all 2s;
+}
+
+.gancio {
+	position: absolute;
+	left: 50%;
+	width: 8px;
+	height: 45px;
+	transform: translateX(-50%);
+	top: 4px;
+	border-radius: 2px;
+	z-index: 99;
+	background: linear-gradient(90deg, rgba(138, 139, 144, 1) 0%,
+		rgba(223, 224, 229, 1) 60%, rgba(221, 222, 227, 1) 80%,
+		rgba(198, 199, 204, 1) 100%);
+	z-index: 1;
+	transition: all 2s;
+}
+
+.pala {
+	position: absolute;
+	width: 71px;
+	height: 98%;
+	top:25px;
+	background: transparent;
+	transform-style: preserve-3d;
+	transform: rotateY(0deg);
+	transition: 2s;
+}
+
+.scanal {
+	position: absolute;
+	width: 71px;
+	height: 98%;
+	top: 0; 
+	background: linear-gradient(90deg,  rgba(188, 189, 194, 1) 0%, 
+		rgba(215, 217, 219, 1) 8%, rgba(218, 219, 224, 1) 10%,
+		rgba(231, 232, 237, 1)  50%,	 
+		rgba(218, 219, 224, 1) 90%, rgba(215, 217, 219, 1) 92%,
+		 rgba(188, 189, 194, 1) 100%);
+
+	transition: all 2s;
+	border-radius: 6px;
+}
+
+.scanal::after {
+	content: "";
+	background: #ddd;
+	border-radius: 5px;
+	top: 13px;
+	background: linear-gradient(90deg,  rgba(194, 195, 200, 1) 0%, 
+		rgba(218, 219, 224, 1)  50%,	 
+	
+		 rgba(195, 196, 200, 1) 100%);
+	height: 13px;
+	width: 13px;
+	border: 1px solid #ccc;
+	position: absolute;
+	left: 49%;
+	z-index: 0;
+	transform: translateX(-49%);
+}

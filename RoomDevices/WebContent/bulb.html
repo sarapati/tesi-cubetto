@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Bulb</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="js/timer.js" type="text/javascript"></script>
+<script src="js/bulbjs.js" type="text/javascript"></script>
+<link rel="stylesheet" href="css/bulb.css">
+</head>
+
+<body>
+	<!-- <div id="background" class="background"></div>-->
+
+	<div id="bul-container" class="bul-container">
+		<div id="bulbo" class="bulbo"></div>
+	</div>
+	<div class="bulbo-bordo"></div>
+	<div class="sup-container">
+		<div class="supporto"></div>
+		<div class="supporto-bordo"></div>
+		<div class="base-supporto"></div>
+		<div class="supporto-bordo-finale"></div>
+	</div>
+
+	<div class="base-a-vite">
+		<div class="scanalatura"></div>
+		<div class="scanalatura"></div>
+		<div class="scanalatura"></div>
+		<div class="scanalatura"></div>
+	</div>
+	<div class="contatto-base"></div>
+	
+
+
+<svg style="visibility: hidden; position: absolute;" width="0"
+	height="0" xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <defs>
+        <filter id="round">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="5"
+		result="blur" />    
+            <feColorMatrix in="blur" mode="matrix"
+		values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+            <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+        </filter>
+    </defs>
+</svg>
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="//cdn.jsdelivr.net/jquery.color-animation/1/mainfile"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js"
+	type="text/javascript"></script>
+
+<script>
+	ffinit();
+	//Starting the connection
+	setTimeout(function() {
+		ID = "SMARTBULB";	
+		
+		MQTTconnect();}, 3000);
+	
+	var ind=-1;
+	var playInterval = 0, loop = false;
+	var timer = 0;
+	var hour;
+	var minute;
+	// variabile per play program
+	var now_playing = 0;
+  </script>
+	<script src="js/cmdreceiver.js" type="text/javascript"></script>
+
+<script src="js/mqttsettings.js" type="text/javascript"></script>
+
+</body>
+</html>

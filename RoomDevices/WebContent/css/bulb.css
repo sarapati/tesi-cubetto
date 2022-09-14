@@ -1,0 +1,235 @@
+html, body {
+	height: 100%;
+	margin: 0;
+}
+
+.container {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+
+.bul-container {
+	z-index: 20;
+	filter: none;
+}
+
+.bulbo {
+	position: relative;
+	width: 280px;
+	height: 210px;
+	clip-path: circle(53% at 50% 78%);
+	z-index: 20;
+/*	background: radial-gradient(circle, rgba(165, 165, 165, 1) 45%,
+		rgba(140, 140, 140, 1) 100%);*/
+	}
+	
+.bulbo-bordo {
+	position: absolute;
+	height: 45px;
+	top: 163px;
+	width: 246px;
+	z-index: 10;
+	/*border-bottom: 6px solid #aaa;*/
+	border-bottom: 6px solid #ddd;
+	border-radius: 0% 0% 100% 100%/0% 0% 20% 20%;
+	background: transparent;
+}
+
+.bulbo-bordo.acceso {
+	border-bottom: 6px solid #ddd;
+}
+
+.sup-container {
+	position: relative;
+	width: 254px;
+	height: 230px;
+	display: flex;
+	flex-direction: column;
+}
+
+.supporto {
+	position: relative;
+	width: 254px;
+	filter: url(#round);
+}
+
+.supporto::before {
+	content: "";
+	display: flex;
+	/* size */
+	width: 254px;
+	height: 200px;
+	/* position */
+	position: absolute;
+	top: -5px;
+	/* shape */
+	clip-path: polygon(0 0, 9% 30%, 12% 42%, 18% 64%, 21% 79%, 23% 92%, 24% 95%, 23%
+		100%, 77% 100%, 76% 95%, 77% 92%, 79% 79%, 82% 64%, 88% 42%, 91% 30%,
+		100% 0);
+	background: rgb(198, 198, 198);
+	/*background: linear-gradient(88deg, rgba(150, 150, 150, 1) 0%,
+		rgba(180, 180, 180, 1) 49%, rgba(151, 151, 151, 1) 100%);*/
+	background: linear-gradient(88deg, rgba(200, 200, 200, 1) 0%,
+		rgba(230, 230, 230, 1) 39%, rgba(230, 230, 230, 1) 59%,
+		rgba(201, 201, 201, 1) 100%);
+}
+
+.supporto.acceso::before {
+	background: linear-gradient(88deg, rgba(200, 200, 200, 1) 0%,
+		rgba(230, 230, 230, 1) 39%, rgba(230, 230, 230, 1) 59%,
+		rgba(201, 201, 201, 1) 100%);
+}
+
+.supporto-bordo, .supporto-bordo-finale {
+	display: flex;
+	position: absolute;
+	height: 46px;
+	left: 62px;
+	bottom: 31px;
+	width: 130px;
+	z-index: 40;
+	/*border-bottom: 3px solid #aaa;*/
+	border-radius: 0% 0% 100% 100%/0% 0% 25% 25%;
+	background: transparent;
+}
+
+.supporto-bordo { /*.acceso*/
+	border-bottom: 3px solid #cbcbcb;
+}
+
+.supporto-bordo-finale {
+	height: 48px;
+	width: 106px;
+	bottom: 14px;
+	left: 74px;
+	border-radius: 0% 0% 100% 100%/0% 0% 20% 20%;
+	/*border-bottom: 3px solid gray;*/
+}
+
+.supporto-bordo-finale{ /*.acceso */
+	border-bottom: 3px solid #dfdfdf;
+}
+
+.supporto::after {
+	content: '';
+	display: flex;
+	position: absolute;
+	height: 16px;
+	top: 198px;
+	left: 60px;
+	width: 134px;
+	z-index: -1;
+	clip-path: polygon(0 0, 100% 0, 88% 100%, 12% 100%);
+	background: rgb(212, 212, 212);
+	/*background: linear-gradient(180deg, rgba(190, 190, 190, 1) 0%,
+		rgba(131, 131, 131, 1) 94%);*/
+	background: linear-gradient(180deg, rgba(212, 212, 212, 1) 0%,
+		rgba(212, 212, 212, 1) 45%, rgba(231, 231, 231, 1) 94%);
+		
+}
+
+.supporto.acceso::after {
+	background: linear-gradient(180deg, rgba(212, 212, 212, 1) 0%,
+		rgba(212, 212, 212, 1) 45%, rgba(231, 231, 231, 1) 94%);
+}
+
+.base-a-vite {
+	position: relative;
+	width: 100px;
+	top: -17px;
+	height: 78px;
+	background: rgb(228, 228, 228);
+	/*background: linear-gradient(90deg, rgba(200, 200, 200, 1) 0%,
+		rgba(51, 51, 51, 1) 5%, rgba(95, 95, 95, 1) 26%,
+		rgba(122, 122, 122, 1) 74%, rgba(51, 51, 51, 1) 95%,
+		rgba(200, 200, 200, 1) 100%);*/
+	background: linear-gradient(90deg, rgba(200, 200, 200, 1) 0%,
+		rgba(51, 51, 51, 1) 5%, rgba(95, 95, 95, 1) 26%,
+		rgba(234, 234, 234, 1) 41%, rgba(206, 206, 206, 1) 63%,
+		rgba(122, 122, 122, 1) 74%, rgba(51, 51, 51, 1) 95%,
+		rgba(200, 200, 200, 1) 100%);
+	border-bottom-left-radius: 30px 15px;
+	border-bottom-right-radius: 30px 15px;
+	z-index: 10;
+}
+
+.base-a-vite.acceso {
+	background: linear-gradient(90deg, rgba(200, 200, 200, 1) 0%,
+		rgba(51, 51, 51, 1) 5%, rgba(95, 95, 95, 1) 26%,
+		rgba(234, 234, 234, 1) 41%, rgba(206, 206, 206, 1) 63%,
+		rgba(122, 122, 122, 1) 74%, rgba(51, 51, 51, 1) 95%,
+		rgba(200, 200, 200, 1) 100%);
+}
+
+.contatto-base {
+	position: relative;
+	width: 90px;
+	height: 25px;
+	filter: url(#round);
+}
+
+.contatto-base::after {
+	content: '';
+	position: absolute;
+	width: 90px;
+	top: -28px;
+	height: 23px;
+	z-index: -10;
+	clip-path: polygon(0 0, 100% 0, 75% 100%, 25% 100%);
+	background: rgb(54, 51, 51);
+	background: linear-gradient(90deg, rgba(54, 51, 51, 1) 7%,
+		rgba(76, 74, 74, 1) 20%, rgba(135, 134, 134, 1) 37%,
+		rgba(158, 158, 158, 1) 48%, rgba(144, 143, 143, 1) 57%,
+		rgba(105, 103, 103, 1) 74%, rgba(54, 51, 51, 1) 100%);
+	border-bottom: 3px groove gray;
+}
+
+.scanalatura {
+	position: absolute;
+	width: 104px;
+	height: 7px;
+	left: -4px;
+	background: red;
+	z-index: 90;
+	transform: rotate(-3deg);
+	border: 2px outset gray;
+	border-radius: 30px;
+	background: rgb(79, 79, 79);
+	/*background: linear-gradient(90deg, rgba(40, 40, 40, 1) 0%,
+		rgba(156, 156, 156, 1) 51%, rgba(40, 40, 40, 1) 100%);*/
+	background: linear-gradient(90deg, rgba(40, 40, 40, 1) 0%,
+		rgba(205, 205, 205, 1) 46%, rgba(186, 186, 186, 1) 61%,
+		rgba(40, 40, 40, 1) 100%);
+	border-top-left-radius: 40px 15px;
+	border-top-right-radius: 5px 15px;
+	border-bottom-left-radius: 5px 15px;
+	border-bottom-right-radius: 40px 15px;
+}
+
+.scanalatura.acceso {
+	background: linear-gradient(90deg, rgba(40, 40, 40, 1) 0%,
+		rgba(205, 205, 205, 1) 46%, rgba(186, 186, 186, 1) 61%,
+		rgba(40, 40, 40, 1) 100%);
+}
+
+.scanalatura:nth-child(1) {
+	top: 11px;
+}
+
+.scanalatura:nth-child(2) {
+	top: 26px;
+}
+
+.scanalatura:nth-child(3) {
+	top: 41px;
+}
+
+.scanalatura:nth-child(4) {
+	top: 56px;
+}

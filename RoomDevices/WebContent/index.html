@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>VIRTUAL ROOM</title>
+</head>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+body {
+	background-color: #333;
+	color: white;
+	font-family: 'Quicksand', sans-serif;
+	
+}
+.openbtn {
+font-weight:600;
+  font-size: 18px;
+  cursor: pointer;
+  background-color: dodgerblue;
+  color: white;
+  padding: 10px 15px;
+  margin: 5px 8px;
+  border: 2px solid dodgerblue;
+  transition: .5s all;
+  z-index: 80;
+    text-decoration: none;
+    display: inline-block;
+width: max-content;
+}
+
+.openbtn:hover {
+  background-color: white;
+  color: black;
+}
+
+.centered {
+position:absolute;
+top:50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+
+.buttonDiv {
+display: inline-block; 
+vertical-align: top;
+}
+
+</style>
+<body>
+<div style="text-align:center"><h1>VIRTUAL ROOM</h1></div>
+<div class="centered">
+<div class="buttonDiv"><a class="openbtn" href="testingroom.jsp">TEST YOUR PREFERENCES</a></div>
+<div class="buttonDiv"><a class="openbtn" href="defaultroom.jsp">TRY DEFAULT ROOM</a></div>
+</div>
+</body>
+</html>
